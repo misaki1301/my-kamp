@@ -15,6 +15,28 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: unnecessary
           
+      - name: Run SSH command
+        # You may pin to the exact commit or the version.
+        # uses: garygrossgarten/github-action-ssh@915e492551885a89131e21d85f2e043c96abff80
+        uses: garygrossgarten/github-action-ssh@0.7.0
+        with:
+          # Command to execute on the remote server.
+          command: ls
+          # Hostname or IP address of the server.
+          host: ${{SSH_HOST}}
+          # Username for authentication.
+          username: misaki
+          # Port number of the server.
+          port: 22
+          # File Location or string that contains a private key for either key-based or hostbased user authentication (OpenSSH format)
+          #privateKey: # optional
+          # Password for password-based user authentication.
+          #password: # optional
+          # For an encrypted private key, this is the passphrase used to decrypt it.
+          #passphrase: # optional
+          # Try keyboard-interactive user authentication if primary user authentication method fails.
+          #tryKeyboard: # optional
+          
       - name: Adding Known Hosts
         run: touch packman
         
