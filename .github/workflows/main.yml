@@ -14,14 +14,14 @@ jobs:
         with:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           known_hosts: unnecessary
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@v0.1.7
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
         with:
+          command: ls -a
           host: ${{ secrets.SSH_HOST }}
           username: misaki
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
-          port: 22
-          script: whoami
+          # passphrase: ${{ secrets.PASSPHRASE }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
           
       - name: Run SSH command
         # You may pin to the exact commit or the version.
