@@ -21,7 +21,7 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: misaki
           # passphrase: ${{ secrets.PASSPHRASE }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY}}
+          privateKey: ${{ secrets.SSH_PK}}
         
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
