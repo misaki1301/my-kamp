@@ -16,7 +16,9 @@ jobs:
           known_hosts: unnecessary
           
       - name: Adding Known Hosts
-        run: ssh-keyscan -p 22 -H misaki1301.hopto.org >> ~/.ssh/known_hosts
+        run: touch packman
+        
+      - run: ls
         
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
