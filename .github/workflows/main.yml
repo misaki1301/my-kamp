@@ -12,8 +12,9 @@ jobs:
       - name: Install SSH KEY
         uses: shimataro/ssh-key-action@v2
         with:
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          key: ${{ secrets.SSH_PK }}
           known_hosts: unnecessary
+      - run: apt install -y openssh
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
