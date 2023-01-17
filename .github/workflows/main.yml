@@ -14,7 +14,7 @@ jobs:
         with:
           key: ${{ secrets.SSH_PK }}
           known_hosts: unnecessary
-      - run: sudo apt install -y openssh
+      - run: ls ~/.ssh/
       - name: ls -a via ssh
         uses: garygrossgarten/github-action-ssh@release
         with:
